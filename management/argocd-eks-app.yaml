@@ -8,7 +8,7 @@ spec:
     namespace: 'default'
     server: 'https://kubernetes.default.svc'
   source:
-    path: 'capi-cluster/aws-eks/'
+    path: 'capi-cluster/aws-eks/c1'
     repoURL: 'https://github.com/karthichu/eks-ec2-clusterapi-gitops'
     targetRevision: HEAD
     # kustomize:
@@ -20,47 +20,47 @@ spec:
       prune: true
       allowEmpty: true
 
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: eks-cluster-2
-# spec:
-#   destination:
-#     name: ''
-#     namespace: 'default'
-#     server: 'https://kubernetes.default.svc'
-#   source:
-#     path: 'capi-cluster/aws-eks/'
-#     repoURL: 'https://github.com/karthichu/eks-ec2-clusterapi-gitops'
-#     targetRevision: HEAD
-#     kustomize:
-#       resources:
-#         - capi-eks-2.yaml
-#   project: default
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       allowEmpty: true
-# ---
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: eks-cluster-3
-# spec:
-#   destination:
-#     name: ''
-#     namespace: 'default'
-#     server: 'https://kubernetes.default.svc'
-#   source:
-#     path: 'capi-cluster/aws-eks/'
-#     repoURL: 'https://github.com/karthichu/eks-ec2-clusterapi-gitops'
-#     targetRevision: HEAD
-#     kustomize:
-#       resources:
-#         - capi-eks-3.yaml
-#   project: default
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       allowEmpty: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eks-cluster-2
+spec:
+  destination:
+    name: ''
+    namespace: 'default'
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 'capi-cluster/aws-eks/c2'
+    repoURL: 'https://github.com/karthichu/eks-ec2-clusterapi-gitops'
+    targetRevision: HEAD
+    kustomize:
+      resources:
+        - capi-eks-2.yaml
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eks-cluster-3
+spec:
+  destination:
+    name: ''
+    namespace: 'default'
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: 'capi-cluster/aws-eks/c3'
+    repoURL: 'https://github.com/karthichu/eks-ec2-clusterapi-gitops'
+    targetRevision: HEAD
+    kustomize:
+      resources:
+        - capi-eks-3.yaml
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
