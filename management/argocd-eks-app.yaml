@@ -34,9 +34,9 @@ spec:
     path: 'capi-cluster/aws-eks/c2'
     repoURL: 'https://github.com/karthichu/eks-ec2-clusterapi-gitops'
     targetRevision: HEAD
-    kustomize:
-      resources:
-        - capi-eks-2.yaml
+    # kustomize:
+    #   resources:
+    #     - capi-eks-2.yaml
   project: default
   syncPolicy:
     automated:
@@ -56,9 +56,9 @@ spec:
     path: 'capi-cluster/aws-eks/c3'
     repoURL: 'https://github.com/karthichu/eks-ec2-clusterapi-gitops'
     targetRevision: HEAD
-    kustomize:
-      resources:
-        - capi-eks-3.yaml
+    # kustomize:
+    #   resources:
+    #     - capi-eks-3.yaml
   project: default
   syncPolicy:
     automated:
