@@ -5,7 +5,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: 'default'
+    namespace: 'c1'
     server: 'https://kubernetes.default.svc'
   source:
     path: 'capi-cluster/aws-eks/c1'
@@ -28,7 +28,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: 'default'
+    namespace: 'c2'
     server: 'https://kubernetes.default.svc'
   source:
     path: 'capi-cluster/aws-eks/c2'
@@ -50,7 +50,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: 'default'
+    namespace: 'c3'
     server: 'https://kubernetes.default.svc'
   source:
     path: 'capi-cluster/aws-eks/c3'
