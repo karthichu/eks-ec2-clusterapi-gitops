@@ -1,8 +1,8 @@
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: Cluster
 metadata:
-  name: capi-eks
-  namespace: default
+  name: capi-eks-1
+  namespace: c1
 spec:
   clusterNetwork:
     pods:
@@ -11,24 +11,24 @@ spec:
   controlPlaneRef:
     apiVersion: controlplane.cluster.x-k8s.io/v1beta2
     kind: AWSManagedControlPlane
-    name: capi-eks-control-plane
+    name: capi-eks-1-control-plane
   infrastructureRef:
     apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
     kind: AWSManagedCluster
-    name: capi-eks
+    name: capi-eks-1
 ---
 apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSManagedCluster
 metadata:
-  name: capi-eks
-  namespace: default
+  name: capi-eks-1
+  namespace: c1
 spec: {}
 ---
 apiVersion: controlplane.cluster.x-k8s.io/v1beta2
 kind: AWSManagedControlPlane
 metadata:
-  name: capi-eks-control-plane
-  namespace: default
+  name: capi-eks-1-control-plane
+  namespace: c1
 spec:
   region: us-east-1
   sshKeyName: capi-ec2
@@ -37,24 +37,24 @@ spec:
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: MachinePool
 metadata:
-  name: capi-eks-pool-0
-  namespace: default
+  name: capi-eks-1-pool-0
+  namespace: c1
 spec:
-  clusterName: capi-eks
+  clusterName: capi-eks-1
   replicas: 2
   template:
     spec:
       bootstrap:
         dataSecretName: ""
-      clusterName: capi-eks
+      clusterName: capi-eks-1
       infrastructureRef:
         apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
         kind: AWSManagedMachinePool
-        name: capi-eks-pool-0
+        name: capi-eks-1-pool-0
 ---
 apiVersion: infrastructure.cluster.x-k8s.io/v1beta2
 kind: AWSManagedMachinePool
 metadata:
-  name: capi-eks-pool-0
-  namespace: default
+  name: capi-eks-1-pool-0
+  namespace: c1
 spec: {}
